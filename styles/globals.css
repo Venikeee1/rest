@@ -131,6 +131,12 @@ a {
 
 @media (max-width: 900px) {
   .map {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .map {
     order: 0;
     height: 250px;
   }
