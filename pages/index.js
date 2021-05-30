@@ -79,16 +79,26 @@ const PoolIcon = () => (
   </svg>
 );
 
+const center = {
+  lat: 42.277746240282006,
+  lng: 18.848552080546334,
+};
+
 export default function Home() {
-  const [activeIndex, setActive] = useState(1);
+  const [activeIndex, setActive] = useState(0);
+  const [centerCords, setCenter] = useState(center);
   const apartmentRef = useRef(null);
   const setActiveApartment = (index) => {
-    // apartmentRef.current[index]
-    console.log(apartmentRef.current.childNodes);
     apartmentRef.current.childNodes[index].scrollIntoView({
       block: 'center',
       behavior: 'smooth',
     });
+    setActive(index);
+  };
+
+  const gotToMarker = (index) => {
+    const [lat, lng] = apartmentsList[index].coordinates;
+    setCenter({ lat, lng });
     setActive(index);
   };
 
@@ -137,7 +147,7 @@ export default function Home() {
                       {parking && <span title="Parking">🚘</span>}
                     </div>
                   </div>
-                  <button onClick={() => setActiveApartment(index)}>
+                  <button onClick={() => gotToMarker(index)}>
                     Посмотреть ан карте
                   </button>
                   <p className="apartmentDescription">{description}</p>
@@ -153,7 +163,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <ApartmentMap>
+        <ApartmentMap center={centerCords}>
           {apartmentsList.map((item, index) => {
             const [lat, lng] = item.coordinates;
             return (

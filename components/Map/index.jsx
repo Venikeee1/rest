@@ -11,7 +11,7 @@ const center = {
   lng: 18.848552080546334,
 };
 
-const ApartmentMap = ({ children }) => {
+const ApartmentMap = ({ children, center }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyB7Zkwv8ZHein66BAALTpWsJAQorKjiTlw',
