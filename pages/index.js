@@ -121,6 +121,7 @@ export default function Home() {
                   title,
                   originalLink,
                   parking,
+                  persons,
                   pool = false,
                   beach = true,
                   description,
@@ -149,6 +150,9 @@ export default function Home() {
                   <button onClick={() => gotToMarker(index)}>
                     Посмотреть нa карте
                   </button>
+                  <span style={{ marginLeft: '10px' }}>
+                    Количество человек:{persons}
+                  </span>
                   <p className="apartmentDescription">{description}</p>
                   <a
                     className="apartmentLink"
