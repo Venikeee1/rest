@@ -111,7 +111,6 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className="container">
-          <h1 className={styles.title + ' title'}>Gods traveling</h1>
           <div className="list" ref={apartmentRef}>
             {apartmentsList.map(
               (
@@ -148,7 +147,7 @@ export default function Home() {
                     </div>
                   </div>
                   <button onClick={() => gotToMarker(index)}>
-                    Посмотреть ан карте
+                    Посмотреть нa карте
                   </button>
                   <p className="apartmentDescription">{description}</p>
                   <a
